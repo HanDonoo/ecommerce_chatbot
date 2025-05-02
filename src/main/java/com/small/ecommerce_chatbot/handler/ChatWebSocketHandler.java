@@ -10,6 +10,7 @@ import com.small.ecommerce_chatbot.processor.NLPProcessor;
 import com.small.ecommerce_chatbot.repository.ChatCommunicationRepository;
 import com.small.ecommerce_chatbot.repository.UserRepository;
 import com.small.ecommerce_chatbot.service.OrderService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
@@ -24,6 +25,7 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Component
 public class ChatWebSocketHandler extends TextWebSocketHandler {
 
@@ -46,7 +48,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         try {
             String payload = message.getPayload();
             Long userId = Long.parseLong(session.getUri().getQuery().split("=")[1]);
-
+            log.info("message is:{}", JSON.toJSONString(message));
             // 解析用户消息
             Map<String, String> messageData = JSON.parseObject(payload, new TypeReference<Map<String, String>>() {});
             String userMessageText = messageData.get("text");

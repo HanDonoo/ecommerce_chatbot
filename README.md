@@ -1,2 +1,2 @@
 # ecommerce_chatbot
-ecommerce_chatbot
+ecommerce_chatbot is a backend chatbot system designed for e-commerce scenarios, built with Java and DeepSeek. It aims to provide users with an intelligent and natural conversational experience. The project supports core features such as product recommendations, order inquiries, and after-sales support, and exposes these capabilities via REST APIs for easy integration into e-commerce websites or mobile apps. With a modular architecture, the system is easy to extend and maintain, making it a suitable intelligent assistant or shopping guide solution for small to medium-sized e-commerce platforms.

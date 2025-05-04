@@ -53,4 +53,10 @@ class EcommerceChatbotApplicationTests {
 		}
 	}
 
+	@Test
+	public void testHistory(){
+		Properties props = new Properties();
+		props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,sentiment");
+	}
+
 }

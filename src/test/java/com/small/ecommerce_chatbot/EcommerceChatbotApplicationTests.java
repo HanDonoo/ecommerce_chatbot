@@ -57,6 +57,19 @@ class EcommerceChatbotApplicationTests {
 	public void testHistory(){
 		Properties props = new Properties();
 		props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,sentiment");
+
+		// 创建 StanfordCoreNLP 管道
+		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+
+		// 输入文本
+		String text = "Stanford CoreNLP is a great Natural Language Processing library. I love using it!";
+
+		// 构建文本 Annotation 对象
+		Annotation document = new Annotation(text);
+
+		// 运行所有选定的 Annotators（如分词、词性标注等）
+		pipeline.annotate(document);
+
 	}
 
 }

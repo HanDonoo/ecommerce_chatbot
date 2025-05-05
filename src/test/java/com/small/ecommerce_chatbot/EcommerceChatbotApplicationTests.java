@@ -70,6 +70,8 @@ class EcommerceChatbotApplicationTests {
 		// 运行所有选定的 Annotators（如分词、词性标注等）
 		pipeline.annotate(document);
 
+		List<CoreMap> sentences = document.get(CoreAnnotations.SentencesAnnotation.class);
+
 	}
 
 }

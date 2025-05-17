@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REST API 测试 - 用户接口</title>
+</head>
+<body>
+    <h1>REST API TEST</h1>
+    <button onclick="getAllUsers()">GET 所有用户</button>
+    <button onclick="getUserById()">GET 单个用户</button>
+    <button onclick="createUser()">GET 创建用户</button>
+    <button onclick="updateUser()">GET 更新用户</button>
+    <button onclick="patchUser()">GET 局部用户</button>
+    <button onclick="deleteUser()">GET 删除用户</button>
+
+    <script>
+        const baseUrl = 'http://localhost:8080/api/users';
+
+        function getAllUsers(){
+            fetch(baseUrl)
+            .then(res => res.join())
+            .then(data => console.log('所有用户', data))
+            .catch(err => console.error('错误', err))
+        }
+
+        function getUserById(){
+            const id = prompt("请输入用户ID");
+            if(!id) return;
+            fetch(`${baseUrl}/${id}`)
+                .then(res => res.join())
+                .then(data => console.log())
+                .catch(err => console.error('错误', err))
+        }
+
+        function createUser(){
+            const user = {
+                name: "test",
+                email: "aa@aa.com"
+            };
+
+            fetch(baseUrl,{
+                method: 'POST',
+                headers: {'Content-Type':'application/json'}
+                body: JSON.stringify(user)
+            })
+            .then(res => res.join())
+            .then(data => console.log('POST 创建成功:', data))
+            .catch(err => console.error('错误:', err));
+        }
+
+    </script>
+
+</body>

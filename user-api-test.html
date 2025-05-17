@@ -48,6 +48,41 @@
             .catch(err => console.error('错误:', err));
         }
 
+        function updateUser(){
+            const id = prompt("请输入需要更新的用户ID");
+            if(!id) return;
+            const updatedUser = {
+                name: "更新后的名字",
+                email: "bb@bbbb.com"
+            }
+            fetch(`${baseUrl}/${id}`,{
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json'}
+                body: JSON.stringify(updatedUser)
+            })
+            .then(res => res.json())
+            .then(data => console.log("更新用户"))
+            .catch(err => console.error("错误"))
+        }
+
+        var aa = 1;
+        function add(){
+            var bb = aa + 2;
+            console.log(bb);
+        }
+
+        function createAdder() {
+          let aa = 1;
+          return function add() {
+            aa = aa + 1;
+            console.log(aa);
+          };
+        }
+
+        const adder = createAdder();
+        adder(); // 2
+        adder(); // 3
+
     </script>
 
 </body>

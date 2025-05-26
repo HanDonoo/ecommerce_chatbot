@@ -14,6 +14,12 @@ public class UserTest {
                 .build();
         ExecutorService poolExecutor = Executors.newSingleThreadExecutor();
 
+        User user1 = new User.Builder()
+                .withName("Kevin")
+                .withAge(19)
+                .withEmail("aa@aa.com")
+                .build();
+        ExecutorService poolExecutor1 = Executors.newSingleThreadExecutor();
 
     }
 }

@@ -25,6 +25,6 @@ public class UserTest {
                 .withAge(19)
                 .withEmail("aa@aa.com")
                 .build();
-        ExecutorService poolExecutor1 = Executors.newSingleThreadExecutor();
+        ExecutorService poolExecutor2 = Executors.newSingleThreadExecutor();
     }
 }
